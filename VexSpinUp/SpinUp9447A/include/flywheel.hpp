@@ -1,4 +1,5 @@
-#include "main.h";
+#include "main.h"
+#include "motors.hpp"
 bool flyWheelState = false;
 
 void flywheelVoltage(int speed1);

@@ -1,4 +1,4 @@
-#include "main.hpp";
+#include "main.h"
 
 //Controller Definition
 pros::Controller master(CONTROLLER_MASTER);

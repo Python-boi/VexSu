@@ -1,5 +1,5 @@
-#include "flywheel.hpp";
-#include "motors.hpp";
+#include "flywheel.hpp"
+#include "motors.hpp"
 
 void flywheelVoltage(int speed1){
     speed1 = speed1*20;

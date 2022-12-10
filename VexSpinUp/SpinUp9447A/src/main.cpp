@@ -1,7 +1,7 @@
-#include "main.h";
-#include "motors.hpp";
-#include "flywheel.hpp";
-#include "drivetrain.hpp";
+#include "main.h"
+#include "motors.hpp"
+#include "flywheel.hpp"
+#include "drivetrain.hpp"
 
 /**
  * A callback function for LLEMU's center button.
@@ -102,7 +102,9 @@ void opcontrol() {
 		toggleFlywheel(!flyWheelState);
 	   }
 	   lastPress = master.get_digital_new_press(CONTROLLER_DIGITAL_R1);
-
+	   
+	   intakeToggle();
+       
 
      delay(10);
 	} 
