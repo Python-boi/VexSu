@@ -1,7 +1,7 @@
-#include "main.h"
-#include "motors.cpp"
-#include "flywheel.cpp"
-#include "drivetrain.cpp"
+#include "main.h";
+#include "motors.hpp";
+#include "flywheel.hpp";
+#include "drivetrain.hpp";
 
 /**
  * A callback function for LLEMU's center button.
@@ -83,21 +83,27 @@ void opcontrol() {
 	  int rightMotorSpeed = master.get_analog(ANALOG_Right_Y);
 	  int deadband = 5;
 
-	  If (leftMotorSpeed > deadband){
-		left_velocity(leftMotorSpeed * 3)
+	  if (abs(leftMotorSpeed) > deadband){
+		left_velocity(leftMotorSpeed * 3);
 		
 	  }
-	  Else{
+	  else{
 		brakes_left();
 	  }
-	  If (rightMotorSpeed > deadband){
-		right_velocity(righttMotorSpeed * 3)
+	  if (abs(rightMotorSpeed) > deadband){
+		right_velocity(righttMotorSpeed * 3);
 		
 	  }
-	  Else{
+	  else{
 		brakes_right();
 	  }
+    
+	   if(master.get_digital_new_press(CONTROLLER_DIGITAL_R1) && !lastPress){
+		toggleFlywheel(!flyWheelState);
+	   }
+	   lastPress = master.get_digital_new_press(CONTROLLER_DIGITAL_R1);
 
 
+     delay(10);
 	} 
 }
