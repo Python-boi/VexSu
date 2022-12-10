@@ -1,3 +1,4 @@
+#pragma once
 #include "main.h"
 #include "motors.hpp"
 void right_velocity(int speed);

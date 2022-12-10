@@ -1,3 +1,4 @@
+#pragma once
 #include "main.h"
 #include "motors.hpp"
 bool flyWheelState = false;

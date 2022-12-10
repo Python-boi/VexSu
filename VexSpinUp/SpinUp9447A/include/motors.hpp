@@ -1,3 +1,4 @@
+#pragma once
 //Controller Declaration
 extern pros::Controller master;
 
