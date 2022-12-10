@@ -12,3 +12,14 @@ void left_velocity(speed){
     LF.move_voltage(speed);
     LB.move_voltage(speed);
 }
+
+void brakes_left(){
+     LFT.move_brake();
+     LF.move_brake();
+     LB.move_brake();
+}
+void brakes_right(){
+     RFT.move_brake();
+     RF.move_brake();
+     RB.move_brake();
+}
