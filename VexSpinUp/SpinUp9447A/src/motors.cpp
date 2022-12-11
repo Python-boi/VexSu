@@ -19,3 +19,5 @@ pros::Motor LF(6, MOTOR_GEARSET_6, 1, MOTOR_ENCODER_COUNTS),
             RB(5, MOTOR_GEARSET_6, 0, MOTOR_ENCODER_COUNTS);
 //sensor Definitions//
 pros::Distance Dist(14);
+
+pros::ADIDigitalOut loader('A');

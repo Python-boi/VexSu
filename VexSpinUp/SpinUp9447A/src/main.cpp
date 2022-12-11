@@ -2,7 +2,7 @@
 #include "motors.hpp"
 #include "flywheel.hpp"
 #include "drivetrain.hpp"
-
+#include "intake.hpp"
 /**
  * A callback function for LLEMU's center button.
  *
@@ -77,33 +77,19 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-      
+      // Create an object of the driveTrain class called chassis
+  		drivetrain chassis;
+		intake Intake;
+		flywheel Flywheel;
 	while (true) {
-      int leftMotorSpeed = master.get_analog(ANALOG_LEFT_Y);
-	  int rightMotorSpeed = master.get_analog(ANALOG_Right_Y);
-	  int deadband = 5;
-
-	  if (abs(leftMotorSpeed) > deadband){
-		left_velocity(leftMotorSpeed * 3);
-		
-	  }
-	  else{
-		brakes_left();
-	  }
-	  if (abs(rightMotorSpeed) > deadband){
-		right_velocity(righttMotorSpeed * 3);
-		
-	  }
-	  else{
-		brakes_right();
-	  }
+ 		
+  
+  		// Call member function of class 
+  		chassis.drivetrainOpcontrol();
     
-	   if(master.get_digital_new_press(CONTROLLER_DIGITAL_R1) && !lastPress){
-		toggleFlywheel(!flyWheelState);
-	   }
-	   lastPress = master.get_digital_new_press(CONTROLLER_DIGITAL_R1);
+       Flywheel.flywheelOpcontrol();
 	   
-	   intakeToggle();
+	   Intake.intakeToggle();
        
 
      delay(10);

@@ -10,3 +10,5 @@ extern pros::Motor intake;
 extern pros::Motor LF, LFT, LB, RF, RFT, RB;
 
 extern pros::sensor dist;
+
+extern pros:: ADIDigitalOut loader;
