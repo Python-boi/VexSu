@@ -11,4 +11,4 @@ void brakes_right();
 //sets Opcontrol
 void drivetrainOpcontrol();
 
-void Drive(double distance, double positon);
+void Drive(double distance);

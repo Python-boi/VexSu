@@ -52,8 +52,22 @@ int deadband = 5;
     right_velocity(speedRight);
 }
 
-void Drive(double distance, double positon){
-  double driveSpeed = PIDcalculate(distance, 0);
+void Drive(double distance){
+  double driveSpeed = PIDcalculate(distance, (LF.get_position() +LFT.get_position()+LB.get_position()+RFT.get_position()+RF.get_position()+RB.get_position())/6 );
    right_velocity(driveSpeed);
    left_velocity(driveSpeed);
+}
+
+void Turn(double degrees, bool direction){
+  if ((direction = 1)){
+  double driveSpeed = PIDcalculate(degrees, (LF.get_position() +LFT.get_position()+LB.get_position()+RFT.get_position()+RF.get_position()+RB.get_position())/6 );
+   right_velocity(driveSpeed);
+   left_velocity(-driveSpeed);
+  }
+
+  if ((direction = 0)){
+      double driveSpeed = PIDcalculate(degrees, (LF.get_position() +LFT.get_position()+LB.get_position()+RFT.get_position()+RF.get_position()+RB.get_position())/6 );
+   right_velocity(-driveSpeed);
+   left_velocity(driveSpeed);
+  }
 }
