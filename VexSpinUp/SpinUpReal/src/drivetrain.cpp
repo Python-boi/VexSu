@@ -1,6 +1,7 @@
 #include "main.h"
 #include "drivetrain.hpp"
 #include "motors.hpp"
+#include "misc.hpp"
 
 
 int speedLeft;
@@ -49,4 +50,10 @@ int deadband = 5;
 	  }
     left_velocity(speedLeft);
     right_velocity(speedRight);
+}
+
+void Drive(double distance, double positon){
+  double driveSpeed = PIDcalculate(distance, 0);
+   right_velocity(driveSpeed);
+   left_velocity(driveSpeed);
 }
